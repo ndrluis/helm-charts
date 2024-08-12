@@ -169,7 +169,7 @@ spec:
                   key: keystore-password
             {{- end }}
           {{- if .Values.tls.resources }}
-          resources: {{- toYaml .Values.tls.resources | nindent 10 }}
+          resources: {{- toYaml .Values.tls.resources | nindent 12 }}
           {{- end }}
           volumeMounts:
           - name: certs
