@@ -110,6 +110,10 @@ spec:
           configMap:
             name: {{ .configMapName }}
         {{- end }}
+        {{- range $volumeName, $volume := .Values.config.coordinator.extraVolumes }}
+        - name: {{ $volumeName }}
+        {{- tpl (toYaml $volume) $ | nindent 10 -}}
+        {{- end }}
       {{- if or .Values.jmxExporter.coordinator.enabled .Values.config.coordinator.initContainers (include "trino.tlsEncryption" . ) }}
       initContainers:
       {{- if .Values.jmxExporter.coordinator.enabled }}
@@ -270,6 +274,10 @@ spec:
               {{- if .subPath }}
               subPath: {{ .subPath }}
               {{- end }}
+            {{- end }}
+            {{- range $mountName, $mount := .Values.config.coordinator.extraVolumeMounts }}
+            - name: {{ $mountName }}
+            {{- tpl (toYaml $mount) $ | nindent 14 -}}
             {{- end }}
           ports:
             - name: http-coord

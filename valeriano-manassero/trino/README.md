@@ -1,6 +1,6 @@
 # trino
 
-![Version: 10.1.1](https://img.shields.io/badge/Version-10.1.1-informational?style=flat-square) ![AppVersion: 433](https://img.shields.io/badge/AppVersion-433-informational?style=flat-square)
+![Version: 10.2.0](https://img.shields.io/badge/Version-10.2.0-informational?style=flat-square) ![AppVersion: 433](https://img.shields.io/badge/AppVersion-433-informational?style=flat-square)
 
 High performance, distributed SQL query engine for big data
 
@@ -33,6 +33,8 @@ Kubernetes: `>= 1.24.0-0 < 1.31.0-0`
 | config.coordinator.env | list | `[]` |  |
 | config.coordinator.envFrom | list | `[]` |  |
 | config.coordinator.extraConfig | string | `""` |  |
+| config.coordinator.extraVolumeMounts | object | `{}` |  |
+| config.coordinator.extraVolumes | object | `{}` |  |
 | config.coordinator.initContainers | list | `[]` |  |
 | config.coordinator.jvm.gcMethod.g1.heapRegionSize | string | `"32M"` |  |
 | config.coordinator.jvm.gcMethod.type | string | `"UseG1GC"` |  |
